@@ -2,58 +2,16 @@
 import * as fs from 'fs';
 import csv from 'csv-parser';
 import { mapValues } from './helpers/mapCsvImport';
-import { Person, State, Gender } from './helpers/types';
+import { Person } from './helpers/types';
 
 const CURRENT_FOLDER: string = __dirname;
 
-interface ValueCounts {
-  [key: string]: number;
-}
-
-const getMostCommonValue = (counts: ValueCounts): string|Gender|State => {
-  const mostCommon = Object.keys(counts).reduce((valueA: string|Gender|State, valueB: string|Gender|State): string|Gender|State => {
-    if (counts[valueA] > counts[valueB]) {
-      return valueA;
-    } else {
-      return valueB;
-    }
-  }, '');
-  return mostCommon;
-}
-
 const processResponders = (people: Person[]): void => {
-  let ageSum = 0;
-  let hasPetsSum = 0; // we'll let true = 1, false = 0 and find the average.
-  const states: ValueCounts = {};
-  const firstNames: ValueCounts = {};
-  const genders: ValueCounts = {};
-
-  people.forEach((
-    { age, hasPets, stateOfResidence, firstName, gender }: Person
-  ) => {
-    ageSum = ageSum + age;
-    hasPetsSum = hasPetsSum + (hasPets ? 1 : 0);
-    states[stateOfResidence] = (states[stateOfResidence] || 0) + 1;
-    genders[gender] = (genders[gender] || 0) + 1;
-    firstNames[firstName] = (firstNames[firstName] || 0) + 1;
-  })
-
-  const avgFirstName: string = getMostCommonValue(firstNames);
-  const avgAge: number = ageSum / people.length;
-  const avgHasPets: boolean = (hasPetsSum / people.length > 0.5) ? true : false;
-  const avgGender: string = getMostCommonValue(genders);
-  const avgState: string = getMostCommonValue(states);
-
-  const averagePersonStr = `
-  The average person is:
-  - called ${avgFirstName},
-  - ${avgAge} years old,
-  - ${avgHasPets ? 'hasPets' : 'does not have pets'},
-  - is ${avgGender},
-  - and lives in ${avgState}
-  `;
-  console.log(averagePersonStr);
-
+  console.log(`
+    Census data:
+    ${JSON.stringify(people)}
+    The average person is unknown.
+  `);
 }
 
 const getAverages = async (): Promise<void> => {

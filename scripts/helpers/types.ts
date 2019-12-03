@@ -9,19 +9,10 @@ export enum State {
   ACT = 'Australian Capital Territory',
 }
 
-export enum Gender {
-  male = 'male',
-  female = 'female',
-}
-
 export interface Person {
   firstName: string;
   lastName: string;
   countryOfOrigin: string;
   primaryLanguage: string;
-  gender: Gender;
-  stateOfResidence: State;
   title: string;
-  age: number;
-  hasPets: boolean;
 }
