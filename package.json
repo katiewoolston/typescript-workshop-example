@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "averages": "tsc && node ./dist/getAverages.js"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.11",
+    "csv-parser": "^2.3.2",
+    "fetch": "^1.1.0",
+    "fs": "0.0.1-security",
+    "typescript": "^3.7.2"
+  }
+}
