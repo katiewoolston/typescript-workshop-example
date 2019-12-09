@@ -15,13 +15,13 @@ export enum Gender {
 }
 
 export interface Person {
-  firstName: string,
-  lastName: string,
-  countryOfOrigin: string,
-  primaryLanguage: string,
-  gender: Gender,
-  stateOfResidence: State,
-  title: string,
-  age: number,
-  hasPets: boolean,
+  firstName: string;
+  lastName: string;
+  countryOfOrigin: string;
+  primaryLanguage: string;
+  gender: Gender;
+  stateOfResidence: State;
+  title: string;
+  age: number;
+  hasPets: boolean;
 }

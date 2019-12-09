@@ -1,6 +1,6 @@
 import { State, Gender } from './types';
 
-export const mapValues = ({ header, value }: { header: string, value: string }): State|Gender|number|boolean|string => {
+export const mapValues = ({ header, value }: { header: string; value: string }): State|Gender|number|boolean|string => {
   switch(header) {
     case 'stateOfResidence':
       return State[value.toUpperCase() as keyof typeof State];  // enumerable

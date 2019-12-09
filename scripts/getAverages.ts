@@ -7,7 +7,7 @@ import { Person, State, Gender } from './helpers/types';
 const CURRENT_FOLDER: string = __dirname;
 
 interface ValueCounts {
-  [key: string]: number
+  [key: string]: number;
 }
 
 const getMostCommonValue = (counts: ValueCounts): string|Gender|State => {
@@ -21,12 +21,12 @@ const getMostCommonValue = (counts: ValueCounts): string|Gender|State => {
   return mostCommon
 }
 
-const processResponders = (people: any): void => {
-  let ageSum: number = 0;
-  let hasPetsSum: number = 0; // we'll let true = 1, false = 0 and find the average.
-  let states: ValueCounts = {};
-  let firstNames: ValueCounts = {};
-  let genders: ValueCounts = {};
+const processResponders = (people: Person[]): void => {
+  let ageSum = 0;
+  let hasPetsSum = 0; // we'll let true = 1, false = 0 and find the average.
+  const states: ValueCounts = {};
+  const firstNames: ValueCounts = {};
+  const genders: ValueCounts = {};
 
   people.forEach((
     { age, hasPets, stateOfResidence, firstName, gender }: Person
@@ -56,11 +56,11 @@ const processResponders = (people: any): void => {
 
 }
 
-const getAverages = async () : Promise<void> => {
+const getAverages = async (): Promise<void> => {
   const responses: Person[] = [];
   fs.createReadStream(`${CURRENT_FOLDER}/../census.csv`)
-  .pipe(csv({ mapValues }))
-  .on('data', (data) => responses.push(data))
-  .on('end', () => processResponders(responses));
+    .pipe(csv({ mapValues }))
+    .on('data', (data) => responses.push(data))
+    .on('end', () => processResponders(responses));
 }
 getAverages();
