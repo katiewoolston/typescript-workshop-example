@@ -9,7 +9,6 @@
     "@typescript-eslint/parser": "^2.10.0",
     "csv-parser": "^2.3.2",
     "eslint": "^6.7.2",
-    "fetch": "^1.1.0",
     "fs": "0.0.1-security",
     "typescript": "^3.7.2"
   }
