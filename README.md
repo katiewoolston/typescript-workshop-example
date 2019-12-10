@@ -9,3 +9,6 @@ To run:
 npm install
 npm run averages
 ```
+
+## More info
+For more info on the what, how and why of TypeScript, see [this presentation](./typescript-workshop.pptx).
