@@ -3,12 +3,14 @@
     "lint": "eslint --ext .ts scripts",
     "averages": "tsc && npm run lint && node ./dist/getAverages.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "@types/node": "^12.12.11",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
+    "eslint": "^6.7.2"
+  },
+  "dependencies": {
     "csv-parser": "^2.3.2",
-    "eslint": "^6.7.2",
     "fs": "0.0.1-security",
     "typescript": "^3.7.2"
   }
