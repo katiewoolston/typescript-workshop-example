@@ -15,10 +15,10 @@ const getMostCommonValue = (counts: ValueCounts): string|Gender|State => {
     if (counts[valueA] > counts[valueB]) {
       return valueA;
     } else {
-      return valueB
+      return valueB;
     }
-  }, '')
-  return mostCommon
+  }, '');
+  return mostCommon;
 }
 
 const processResponders = (people: Person[]): void => {
@@ -51,7 +51,7 @@ const processResponders = (people: Person[]): void => {
   - ${avgHasPets ? 'hasPets' : 'does not have pets'},
   - is ${avgGender},
   - and lives in ${avgState}
-  `
+  `;
   console.log(averagePersonStr);
 
 }

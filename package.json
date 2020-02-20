@@ -1,7 +1,7 @@
 {
   "scripts": {
     "lint": "eslint --ext .ts scripts",
-    "averages": "tsc && node ./dist/getAverages.js"
+    "averages": "tsc && npm run lint && node ./dist/getAverages.js"
   },
   "dependencies": {
     "@types/node": "^12.12.11",
